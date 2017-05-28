@@ -4,6 +4,7 @@
 #include "matrix.h"
 #include <vector>
 #include <string>
+#include <omp.h>
 
 namespace methods {
 
@@ -129,11 +130,64 @@ namespace methods {
         */
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
-                solution.push_back(M.get(i,j));
+                solution[i*m+j] = (M.get(i,j));
             }
         }
 
     }
+
+    template<typename T>
+    void pliebmann(short int n, short int m, T bottom, T top, T left, T right, std::vector<T>& solution){
+
+        /** se instancia una matriz en la cual se guardara la solucion del metodo*/
+        anpi::Matrix<T> M(n,m);
+
+        /** se llena con cero la matriz*/
+        makeCero(M);
+
+        /**
+         * se analizan los casos de los limites
+         * Para el caso de la placa es sencillo dado el hecho de que solo se analizan los bordes
+        */
+        insertBounderyValues(n, m, bottom, top, left, right, M);
+		
+        /**
+        * Se aplica el metodo de liebmann
+        * T[i][j] = (1/4)( T[i+1][j] + T[i-1][j] + T[i][j+1] + T[i][j-1])
+        * el metodo se iterera n veces
+        */
+        #pragma omp parallel
+        {
+            int i, j, k;
+            T tmp = T(0);
+            #pragma omp for
+            for (k = 0; k < n; k++) {
+                for (j = 1; j < n; j++) {
+                    for (i = 1; i < n; i++) {
+                        if(i+1 != n && j+1 != m){
+                            /**
+                             * @brief tmp: almacena el valor de la formula del metodo de liebmann
+                             */
+                            tmp = 0.25 * ( M.get(i+1,j) + M.get(i-1,j) + M.get(i,j+1) + M.get(i,j-1));
+                             M.insert(i,j,tmp);
+                        }
+                    }
+                }
+            }
+        }
+
+        
+		
+		/**
+        * Se guarda el resultado de la matriz en el vector solution
+        */
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                solution[i*m+j] = (M.get(i,j));
+            }
+        }
+    }
+	
 
     template<typename T>
     void heatX(int n, int m, std::vector<T>& qx, std::vector<T> V){

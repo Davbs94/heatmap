@@ -8,9 +8,17 @@
 
 int main(int argc, char* argv[])
 {
-    std::vector<float> V,qx,qy;
-
-    methods::liebmann<float>(atoi(argv[1]),atoi(argv[1]),atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+     std::vector<float> V(atoi(argv[1])*atoi(argv[1]),0),qx,qy;
+	
+	double st=omp_get_wtime();
+    for (int i = 0; i < 100; i++) methods::liebmann<float>(atoi(argv[1]),atoi(argv[1]),atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+	double en=omp_get_wtime();
+    std::cout << "Serie  " << (en - st)/100 << std::endl;
+	
+	st=omp_get_wtime();
+	for (int i = 0; i < 100; i++) methods::pliebmann<float>(atoi(argv[1]),atoi(argv[1]),atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+	en=omp_get_wtime();
+    std::cout << "Paralelo  " << (en - st)/100 << std::endl;
     
 
 
