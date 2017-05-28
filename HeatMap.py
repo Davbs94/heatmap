@@ -32,19 +32,20 @@ def y_index(n):
             r.append(i)
     return r
 
-def fix_z(z,f):
-    """Funcion encargada de arreglar
-    las magnitudes del vector para el quiver
-    plot
+
+
+def fix_x(n,m):
+    """Arregla es descuadro de los valores x
     """
-    tmp = []
-    for x in range (0,len(z)):
-        tmp.append(z[x]*f)
-    return tmp
+    r = []
+    for i in range (0,n):
+        for j in range (0,n):
+            r.append(m[(n)*(n-1-j)+(i)])
+    return r
 
 
 
-def hm(z,e,u,v):
+def hm(z,e,u,v,r):
     """Esta funcion se encarga de graficar el mapa
     de calor para una matriz cuadrada con valores 
     de temperatura que van en un rango desde los
@@ -58,14 +59,15 @@ def hm(z,e,u,v):
     x = x_index(int(n))
     y = y_index(int(n))
 
+    x_f = fix_x(int(n),u)
+
 
 
   
 
 
-    
-
-    plt.quiver(x, y,u,v,scale=1000, scale_units='inches')
+    if (r):
+	plt.quiver(x,y,u,v,scale=500, scale_units='inches')
 
 
     heatmap, xedges, yedges = np.histogram2d(y, x, bins = (n), weights=z)

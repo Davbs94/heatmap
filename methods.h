@@ -139,16 +139,16 @@ namespace methods {
     void heatX(int n, int m, std::vector<T>& qx, std::vector<T> V){
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
-                if (j ==0){
-                    qx.push_back(V[i*m]/2);
+                if (j ==0 || i == 0){
+                    qx.push_back(0);
                 }
 
-                else if (j == m-1){
-                    qx.push_back(V[i*m+j]/2);
+                else if (j == m-1 || i == n-1){
+                    qx.push_back(0);
                 }
 
                 else{
-                    T dx = (V[i*m+j+1] - V[i*m+j-1]);
+                    T dx = -(V[((i*m)+j)+1] - V[((i*m)+j)-1]);
                     qx.push_back(dx/2);
                 }
             }
@@ -160,16 +160,16 @@ namespace methods {
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
 
-                if (i ==0){
-                    qy.push_back(V[i*m+j]/2);
+                if (i ==0 || j == 0){
+                    qy.push_back(0);
                 }
 
-                else if (i == n-1){
-                    qy.push_back(V[i*m+j]/2);
+                else if (i == n-1 || j == m-1){
+                    qy.push_back(0);
                 }
 
                 else{
-                    T dy = (V[i*m+j+n] - V[i*m+j-n]);
+                    T dy = (V[(m*(i+1)+j)] - V[(m*(i-1)+j)]);
                     qy.push_back(dy/2);
                 }
             }
