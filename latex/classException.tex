@@ -1,0 +1,107 @@
+\hypertarget{classException}{}\section{Referencia de la Clase Exception}
+\label{classException}\index{Exception@{Exception}}
+
+
+Diagrama de herencias de Exception
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{classException__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboración para Exception\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{classException__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classException_ac541ead5c20548813d7dea73c28c7fab}{Exception} (const char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Constructor (C strings). \end{DoxyCompactList}\item 
+\hyperlink{classException_a472b7904dadf1047ba48c23741888456}{Exception} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Constructor (C++ S\+TL strings). \end{DoxyCompactList}\item 
+virtual \hyperlink{classException_ad1ba411de295ef2eeb02ba26284a829a}{$\sim$\+Exception} ()  throw ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual const char $\ast$ \hyperlink{classException_a78154a31544a609cbd226d32574f52cd}{what} () const   throw ()
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the (constant) error description. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{classException_a5d59cc46086c61391ed26773ce861780}{msg\+\_\+}\hypertarget{classException_a5d59cc46086c61391ed26773ce861780}{}\label{classException_a5d59cc46086c61391ed26773ce861780}
+
+\begin{DoxyCompactList}\small\item\em Error message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación del constructor y destructor}
+\index{Exception@{Exception}!Exception@{Exception}}
+\index{Exception@{Exception}!Exception@{Exception}}
+\subsubsection[{\texorpdfstring{Exception(const char $\ast$message)}{Exception(const char *message)}}]{\setlength{\rightskip}{0pt plus 5cm}Exception\+::\+Exception (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classException_ac541ead5c20548813d7dea73c28c7fab}{}\label{classException_ac541ead5c20548813d7dea73c28c7fab}
+
+
+Constructor (C strings). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em message} & C-\/style string error message. The string contents are copied upon construction. Hence, responsibility for deleting the char$\ast$ lies with the caller. \\
+\hline
+\end{DoxyParams}
+\index{Exception@{Exception}!Exception@{Exception}}
+\index{Exception@{Exception}!Exception@{Exception}}
+\subsubsection[{\texorpdfstring{Exception(const std\+::string \&message)}{Exception(const std::string &message)}}]{\setlength{\rightskip}{0pt plus 5cm}Exception\+::\+Exception (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classException_a472b7904dadf1047ba48c23741888456}{}\label{classException_a472b7904dadf1047ba48c23741888456}
+
+
+Constructor (C++ S\+TL strings). 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em message} & The error message. \\
+\hline
+\end{DoxyParams}
+\index{Exception@{Exception}!````~Exception@{$\sim$\+Exception}}
+\index{````~Exception@{$\sim$\+Exception}!Exception@{Exception}}
+\subsubsection[{\texorpdfstring{$\sim$\+Exception()}{~Exception()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual Exception\+::$\sim$\+Exception (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classException_ad1ba411de295ef2eeb02ba26284a829a}{}\label{classException_ad1ba411de295ef2eeb02ba26284a829a}
+
+
+Destructor. 
+
+Virtual to allow for subclassing. 
+
+\subsection{Documentación de las funciones miembro}
+\index{Exception@{Exception}!what@{what}}
+\index{what@{what}!Exception@{Exception}}
+\subsubsection[{\texorpdfstring{what() const }{what() const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Exception\+::what (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classException_a78154a31544a609cbd226d32574f52cd}{}\label{classException_a78154a31544a609cbd226d32574f52cd}
+
+
+Returns a pointer to the (constant) error description. 
+
+\begin{DoxyReturn}{Devuelve}
+A pointer to a const char$\ast$. The underlying memory is in posession of the \hyperlink{classException}{Exception} object. Callers must not attempt to free the memory. 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+exception.\+h\end{DoxyCompactItemize}

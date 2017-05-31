@@ -9,14 +9,15 @@
 int main(int argc, char* argv[])
 {
      std::vector<float> V(atoi(argv[1])*atoi(argv[1]),0),qx,qy;
-	
+    methods::Liebmann<float> L;
+
 	double st=omp_get_wtime();
-    for (int i = 0; i < 100; i++) methods::liebmann<float>(atoi(argv[1]),atoi(argv[1]),atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+    for (int i = 0; i < 100; i++) L.liebmann(atoi(argv[1]),atoi(argv[1]),atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
 	double en=omp_get_wtime();
     std::cout << "Serie  " << (en - st)/100 << std::endl;
 	
 	st=omp_get_wtime();
-	for (int i = 0; i < 100; i++) methods::pliebmann<float>(atoi(argv[1]),atoi(argv[1]),atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+    for (int i = 0; i < 100; i++) L.pliebmann(atoi(argv[1]),atoi(argv[1]),atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
 	en=omp_get_wtime();
     std::cout << "Paralelo  " << (en - st)/100 << std::endl;
     
@@ -26,8 +27,8 @@ int main(int argc, char* argv[])
 
 
         
-   	methods::heatX<float>(atoi(argv[1]),atoi(argv[1]),qx,V);
-     	methods::heatY<float>(atoi(argv[1]),atoi(argv[1]),qy,V);
+        L.heatX(atoi(argv[1]),atoi(argv[1]),qx,V);
+        L.heatY(atoi(argv[1]),atoi(argv[1]),qy,V);
         
     	std::string tmp1 = "z = [";
     	std::string tmp2 = "e = ";

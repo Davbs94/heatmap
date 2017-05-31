@@ -1,0 +1,177 @@
+\hypertarget{classmethods_1_1Liebmann}{}\section{Referencia de la plantilla de la Clase methods\+:\+:Liebmann$<$ T $>$}
+\label{classmethods_1_1Liebmann}\index{methods\+::\+Liebmann$<$ T $>$@{methods\+::\+Liebmann$<$ T $>$}}
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmethods_1_1Liebmann_a7a095aca7a7556f4eec22c2c3528f436}{Liebmann} ()\hypertarget{classmethods_1_1Liebmann_a7a095aca7a7556f4eec22c2c3528f436}{}\label{classmethods_1_1Liebmann_a7a095aca7a7556f4eec22c2c3528f436}
+
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classmethods_1_1Liebmann_a2f2d48f06aeb92dcbcb0e73774ffb200}{$\sim$\+Liebmann} ()\hypertarget{classmethods_1_1Liebmann_a2f2d48f06aeb92dcbcb0e73774ffb200}{}\label{classmethods_1_1Liebmann_a2f2d48f06aeb92dcbcb0e73774ffb200}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classmethods_1_1Liebmann_a422c224247ccf4cb7e997553436aa59e}{liebmann} (short int n, short int m, T bottom, T top, T left, T right, std\+::vector$<$ T $>$ \&solution)
+\begin{DoxyCompactList}\small\item\em Este es el metodo utilizado para generar la matriz de solucion del metodo de liebman paralelizado. \end{DoxyCompactList}\item 
+void \hyperlink{classmethods_1_1Liebmann_aa89b8c2b82ca711b58fa318b1279ace0}{pliebmann} (short int n, short int m, T bottom, T top, T left, T right, std\+::vector$<$ T $>$ \&solution)
+\begin{DoxyCompactList}\small\item\em Este es el metodo utilizado para generar la matriz de solucion del metodo de liebmann paralelizado. \end{DoxyCompactList}\item 
+void \hyperlink{classmethods_1_1Liebmann_a21db65627b967d86d1cd5fd0c60e9cfb}{heatX} (int n, int m, std\+::vector$<$ T $>$ \&qx, std\+::vector$<$ T $>$ V)
+\begin{DoxyCompactList}\small\item\em Este es el metodo utilizado para generar el vector qx, que representa la componente x del flujo del calor. \end{DoxyCompactList}\item 
+void \hyperlink{classmethods_1_1Liebmann_ade173b06f3fb835d5bab07c9307052db}{heatY} (int n, int m, std\+::vector$<$ T $>$ \&qy, std\+::vector$<$ T $>$ V)
+\begin{DoxyCompactList}\small\item\em Este es el metodo utilizado para generar el vector qy, que representa la componente y del flujo del calor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de las funciones miembro}
+\index{methods\+::\+Liebmann@{methods\+::\+Liebmann}!heatX@{heatX}}
+\index{heatX@{heatX}!methods\+::\+Liebmann@{methods\+::\+Liebmann}}
+\subsubsection[{\texorpdfstring{heat\+X(int n, int m, std\+::vector$<$ T $>$ \&qx, std\+::vector$<$ T $>$ V)}{heatX(int n, int m, std::vector< T > &qx, std::vector< T > V)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf methods\+::\+Liebmann}$<$ T $>$\+::heatX (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{m, }
+\item[{std\+::vector$<$ T $>$ \&}]{qx, }
+\item[{std\+::vector$<$ T $>$}]{V}
+\end{DoxyParamCaption}
+)}\hypertarget{classmethods_1_1Liebmann_a21db65627b967d86d1cd5fd0c60e9cfb}{}\label{classmethods_1_1Liebmann_a21db65627b967d86d1cd5fd0c60e9cfb}
+
+
+Este es el metodo utilizado para generar el vector qx, que representa la componente x del flujo del calor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & indica el numero de filas que va a tener la matriz \\
+\hline
+{\em m} & indica el numero de columnas que va a tener la matriz \\
+\hline
+{\em qx} & vector representante de la componente x del flujo calorifico \\
+\hline
+{\em top} & indica la cantidad de calor que se va a aplicar al lado de arriba de la placa (el valor es constante por todo el lado), si el valor que se indica es 0, se asume que ese borde esta aislado \\
+\hline
+{\em V} & representa el vector soluci\mbox{[}on del metodo de liebmann \\
+\hline
+\end{DoxyParams}
+\index{methods\+::\+Liebmann@{methods\+::\+Liebmann}!heatY@{heatY}}
+\index{heatY@{heatY}!methods\+::\+Liebmann@{methods\+::\+Liebmann}}
+\subsubsection[{\texorpdfstring{heat\+Y(int n, int m, std\+::vector$<$ T $>$ \&qy, std\+::vector$<$ T $>$ V)}{heatY(int n, int m, std::vector< T > &qy, std::vector< T > V)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf methods\+::\+Liebmann}$<$ T $>$\+::heatY (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{m, }
+\item[{std\+::vector$<$ T $>$ \&}]{qy, }
+\item[{std\+::vector$<$ T $>$}]{V}
+\end{DoxyParamCaption}
+)}\hypertarget{classmethods_1_1Liebmann_ade173b06f3fb835d5bab07c9307052db}{}\label{classmethods_1_1Liebmann_ade173b06f3fb835d5bab07c9307052db}
+
+
+Este es el metodo utilizado para generar el vector qy, que representa la componente y del flujo del calor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & indica el numero de filas que va a tener la matriz \\
+\hline
+{\em m} & indica el numero de columnas que va a tener la matriz \\
+\hline
+{\em qx} & vector representante de la componente y del flujo calorifico \\
+\hline
+{\em top} & indica la cantidad de calor que se va a aplicar al lado de arriba de la placa (el valor es constante por todo el lado), si el valor que se indica es 0, se asume que ese borde esta aislado \\
+\hline
+{\em V} & representa el vector soluci\mbox{[}on del metodo de liebmann \\
+\hline
+\end{DoxyParams}
+\index{methods\+::\+Liebmann@{methods\+::\+Liebmann}!liebmann@{liebmann}}
+\index{liebmann@{liebmann}!methods\+::\+Liebmann@{methods\+::\+Liebmann}}
+\subsubsection[{\texorpdfstring{liebmann(short int n, short int m, T bottom, T top, T left, T right, std\+::vector$<$ T $>$ \&solution)}{liebmann(short int n, short int m, T bottom, T top, T left, T right, std::vector< T > &solution)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf methods\+::\+Liebmann}$<$ T $>$\+::liebmann (
+\begin{DoxyParamCaption}
+\item[{short int}]{n, }
+\item[{short int}]{m, }
+\item[{T}]{bottom, }
+\item[{T}]{top, }
+\item[{T}]{left, }
+\item[{T}]{right, }
+\item[{std\+::vector$<$ T $>$ \&}]{solution}
+\end{DoxyParamCaption}
+)}\hypertarget{classmethods_1_1Liebmann_a422c224247ccf4cb7e997553436aa59e}{}\label{classmethods_1_1Liebmann_a422c224247ccf4cb7e997553436aa59e}
+
+
+Este es el metodo utilizado para generar la matriz de solucion del metodo de liebman paralelizado. 
+
+Este es el metodo utilizado para generar la matriz de solucion del metodo de liebmann.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & indica el numero de filas que va a tener la matriz \\
+\hline
+{\em m} & indica el numero de columnas que va a tener la matriz \\
+\hline
+{\em bottom} & indica la cantidad de calor que se va a aplicar al lado mas bajo de la placa (el valor es constante por todo el lado), si el valor que se indica es 0, se asume que ese borde esta aislado \\
+\hline
+{\em top} & indica la cantidad de calor que se va a aplicar al lado de arriba de la placa (el valor es constante por todo el lado), si el valor que se indica es 0, se asume que ese borde esta aislado \\
+\hline
+{\em left} & indica la cantidad de calor que se va a aplicar al lado izquierdo de la placa (el valor es constante por todo el lado), si el valor que se indica es 0, se asume que ese borde esta aislado \\
+\hline
+{\em right} & indica la cantidad de calor que se va a aplicar al lado derecho de la placa (el valor es constante por todo el lado), si el valor que se indica es 0, se asume que ese borde esta aislado \\
+\hline
+{\em solution} & En este parametro se almacenara la solucion del metodo \\
+\hline
+\end{DoxyParams}
+se instancia una matriz en la cual se guardara la solucion del metodo
+
+se instancia una matriz temporal en la cual se guardara la matriz anterior del metodo, para as\mbox{[}i hacer las comparaciones y obtener el error
+
+se llena con cero la matriz
+
+se llena con cero la matriz
+
+se analizan los casos de los limites Para el caso de la placa es sencillo dado el hecho de que solo se analizan los bordes
+
+Se aplica el metodo de liebmann T\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} = (1/4)( T\mbox{[}i+1\mbox{]}\mbox{[}j\mbox{]} + T\mbox{[}i-\/1\mbox{]}\mbox{[}j\mbox{]} + T\mbox{[}i\mbox{]}\mbox{[}j+1\mbox{]} + T\mbox{[}i\mbox{]}\mbox{[}j-\/1\mbox{]}) el metodo se iterera n veces
+
+tmp\+:almacena el valor de la formula
+
+Se guarda el resultado de la matriz en el vector solution\index{methods\+::\+Liebmann@{methods\+::\+Liebmann}!pliebmann@{pliebmann}}
+\index{pliebmann@{pliebmann}!methods\+::\+Liebmann@{methods\+::\+Liebmann}}
+\subsubsection[{\texorpdfstring{pliebmann(short int n, short int m, T bottom, T top, T left, T right, std\+::vector$<$ T $>$ \&solution)}{pliebmann(short int n, short int m, T bottom, T top, T left, T right, std::vector< T > &solution)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf methods\+::\+Liebmann}$<$ T $>$\+::pliebmann (
+\begin{DoxyParamCaption}
+\item[{short int}]{n, }
+\item[{short int}]{m, }
+\item[{T}]{bottom, }
+\item[{T}]{top, }
+\item[{T}]{left, }
+\item[{T}]{right, }
+\item[{std\+::vector$<$ T $>$ \&}]{solution}
+\end{DoxyParamCaption}
+)}\hypertarget{classmethods_1_1Liebmann_aa89b8c2b82ca711b58fa318b1279ace0}{}\label{classmethods_1_1Liebmann_aa89b8c2b82ca711b58fa318b1279ace0}
+
+
+Este es el metodo utilizado para generar la matriz de solucion del metodo de liebmann paralelizado. 
+
+Este es el metodo utilizado para generar la matriz de solucion del metodo de leabman paralelizado.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & indica el numero de filas que va a tener la matriz \\
+\hline
+{\em m} & indica el numero de columnas que va a tener la matriz \\
+\hline
+{\em bottom} & indica la cantidad de calor que se va a aplicar al lado mas bajo de la placa (el valor es constante por todo el lado), si el valor que se indica es 0, se asume que ese borde esta aislado \\
+\hline
+{\em top} & indica la cantidad de calor que se va a aplicar al lado de arriba de la placa (el valor es constante por todo el lado), si el valor que se indica es 0, se asume que ese borde esta aislado \\
+\hline
+{\em left} & indica la cantidad de calor que se va a aplicar al lado izquierdo de la placa (el valor es constante por todo el lado), si el valor que se indica es 0, se asume que ese borde esta aislado \\
+\hline
+{\em right} & indica la cantidad de calor que se va a aplicar al lado derecho de la placa (el valor es constante por todo el lado), si el valor que se indica es 0, se asume que ese borde esta aislado \\
+\hline
+{\em solution} & En este parametro se almacenara la solucion del metodo \\
+\hline
+\end{DoxyParams}
+se instancia una matriz en la cual se guardara la solucion del metodo
+
+se llena con cero la matriz
+
+se analizan los casos de los limites Para el caso de la placa es sencillo dado el hecho de que solo se analizan los bordes
+
+Se aplica el metodo de liebmann T\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} = (1/4)( T\mbox{[}i+1\mbox{]}\mbox{[}j\mbox{]} + T\mbox{[}i-\/1\mbox{]}\mbox{[}j\mbox{]} + T\mbox{[}i\mbox{]}\mbox{[}j+1\mbox{]} + T\mbox{[}i\mbox{]}\mbox{[}j-\/1\mbox{]}) el metodo se iterera n veces
+
+tmp\+: almacena el valor de la formula del metodo de liebmann
+
+Se guarda el resultado de la matriz en el vector solution
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+methods.\+h\end{DoxyCompactItemize}

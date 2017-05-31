@@ -1,0 +1,128 @@
+\hypertarget{classanpi_1_1Matrix}{}\section{Referencia de la plantilla de la Clase anpi\+:\+:Matrix$<$ T $>$}
+\label{classanpi_1_1Matrix}\index{anpi\+::\+Matrix$<$ T $>$@{anpi\+::\+Matrix$<$ T $>$}}
+
+
+Row-\/major simple matrix class.  
+
+
+
+
+{\ttfamily \#include $<$matrix.\+h$>$}
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classanpi_1_1Matrix_a378f41ca6eba448d5aabbbbafc9110cf}{Matrix} ()\hypertarget{classanpi_1_1Matrix_a378f41ca6eba448d5aabbbbafc9110cf}{}\label{classanpi_1_1Matrix_a378f41ca6eba448d5aabbbbafc9110cf}
+
+\begin{DoxyCompactList}\small\item\em Construct an empty matrix. \end{DoxyCompactList}\item 
+\hyperlink{classanpi_1_1Matrix_a7e948c79bd875197a3850e03efc8bd5f}{Matrix} (const size\+\_\+t \hyperlink{classanpi_1_1Matrix_a4b786272497d9f67f120a226c1bfcff4}{rows}, const size\+\_\+t \hyperlink{classanpi_1_1Matrix_a5bd9f2fe255fe0390bfe880877222b2a}{cols}, const T init\+Val=T())\hypertarget{classanpi_1_1Matrix_a7e948c79bd875197a3850e03efc8bd5f}{}\label{classanpi_1_1Matrix_a7e948c79bd875197a3850e03efc8bd5f}
+
+\begin{DoxyCompactList}\small\item\em Construct a matrix rows x cols and initialize all elements with the given value. \end{DoxyCompactList}\item 
+\hyperlink{classanpi_1_1Matrix_a3c37c93a58cbb831863ad3ad9dc73af6}{Matrix} (const size\+\_\+t \hyperlink{classanpi_1_1Matrix_a4b786272497d9f67f120a226c1bfcff4}{rows}, const size\+\_\+t \hyperlink{classanpi_1_1Matrix_a5bd9f2fe255fe0390bfe880877222b2a}{cols}, const T $\ast$const init\+Mem)\hypertarget{classanpi_1_1Matrix_a3c37c93a58cbb831863ad3ad9dc73af6}{}\label{classanpi_1_1Matrix_a3c37c93a58cbb831863ad3ad9dc73af6}
+
+\begin{DoxyCompactList}\small\item\em Construct a matrix rows x cols and initialize all elements with the memory content at the given pointer. \end{DoxyCompactList}\item 
+\hyperlink{classanpi_1_1Matrix_a336997e2f4cf238db9f2fb9992144f23}{Matrix} (const \hyperlink{classanpi_1_1Matrix}{Matrix}$<$ T $>$ \&other)\hypertarget{classanpi_1_1Matrix_a336997e2f4cf238db9f2fb9992144f23}{}\label{classanpi_1_1Matrix_a336997e2f4cf238db9f2fb9992144f23}
+
+\begin{DoxyCompactList}\small\item\em Copy constructor will do a deep copy on the given matrix. \end{DoxyCompactList}\item 
+\hyperlink{classanpi_1_1Matrix_acd9cb8d3e7b77bb14d9ce6d153ac5634}{$\sim$\+Matrix} ()\hypertarget{classanpi_1_1Matrix_acd9cb8d3e7b77bb14d9ce6d153ac5634}{}\label{classanpi_1_1Matrix_acd9cb8d3e7b77bb14d9ce6d153ac5634}
+
+\begin{DoxyCompactList}\small\item\em Release all memory. \end{DoxyCompactList}\item 
+\hyperlink{classanpi_1_1Matrix}{Matrix}$<$ T $>$ \& \hyperlink{classanpi_1_1Matrix_acba9e336b083b5d6b58fe24f7942ddbe}{operator=} (const \hyperlink{classanpi_1_1Matrix}{Matrix}$<$ T $>$ \&other)\hypertarget{classanpi_1_1Matrix_acba9e336b083b5d6b58fe24f7942ddbe}{}\label{classanpi_1_1Matrix_acba9e336b083b5d6b58fe24f7942ddbe}
+
+\begin{DoxyCompactList}\small\item\em Deep copy another matrix. \end{DoxyCompactList}\item 
+\hyperlink{classanpi_1_1Matrix}{Matrix}$<$ T $>$ \& \hyperlink{classanpi_1_1Matrix_a22e9b98af1622be5bda69334c773fc13}{operator+} (const \hyperlink{classanpi_1_1Matrix}{Matrix}$<$ T $>$ \&B)\hypertarget{classanpi_1_1Matrix_a22e9b98af1622be5bda69334c773fc13}{}\label{classanpi_1_1Matrix_a22e9b98af1622be5bda69334c773fc13}
+
+\begin{DoxyCompactList}\small\item\em Sum this matrix with another matrix. \end{DoxyCompactList}\item 
+\hyperlink{classanpi_1_1Matrix}{Matrix}$<$ T $>$ \& \hyperlink{classanpi_1_1Matrix_af9f8390a794ef305a6570c7ab4e91b84}{operator-\/} (const \hyperlink{classanpi_1_1Matrix}{Matrix}$<$ T $>$ \&B)\hypertarget{classanpi_1_1Matrix_af9f8390a794ef305a6570c7ab4e91b84}{}\label{classanpi_1_1Matrix_af9f8390a794ef305a6570c7ab4e91b84}
+
+\begin{DoxyCompactList}\small\item\em Substract this matrix with another matrix. \end{DoxyCompactList}\item 
+\hyperlink{classanpi_1_1Matrix}{Matrix}$<$ T $>$ \hyperlink{classanpi_1_1Matrix_a46d50949da215dafdb2d13e3ae4c9ac3}{operator$\ast$} (const \hyperlink{classanpi_1_1Matrix}{Matrix}$<$ T $>$ \&B)\hypertarget{classanpi_1_1Matrix_a46d50949da215dafdb2d13e3ae4c9ac3}{}\label{classanpi_1_1Matrix_a46d50949da215dafdb2d13e3ae4c9ac3}
+
+\begin{DoxyCompactList}\small\item\em Multiplies this matrix with another matrix. \end{DoxyCompactList}\item 
+T $\ast$ \hyperlink{classanpi_1_1Matrix_a6bcaaad80bd2d631017472231f6d5e63}{operator\mbox{[}$\,$\mbox{]}} (const size\+\_\+t row)\hypertarget{classanpi_1_1Matrix_a6bcaaad80bd2d631017472231f6d5e63}{}\label{classanpi_1_1Matrix_a6bcaaad80bd2d631017472231f6d5e63}
+
+\begin{DoxyCompactList}\small\item\em Return pointer to a given row. \end{DoxyCompactList}\item 
+const T $\ast$ \hyperlink{classanpi_1_1Matrix_a13da6bd67304aac627c88f7213d5593c}{operator\mbox{[}$\,$\mbox{]}} (const size\+\_\+t row) const \hypertarget{classanpi_1_1Matrix_a13da6bd67304aac627c88f7213d5593c}{}\label{classanpi_1_1Matrix_a13da6bd67304aac627c88f7213d5593c}
+
+\begin{DoxyCompactList}\small\item\em Return read-\/only pointer to a given row. \end{DoxyCompactList}\item 
+T \& \hyperlink{classanpi_1_1Matrix_aefaff4b28c12084a0c268573e96cf9ca}{operator()} (const size\+\_\+t row, const size\+\_\+t col)\hypertarget{classanpi_1_1Matrix_aefaff4b28c12084a0c268573e96cf9ca}{}\label{classanpi_1_1Matrix_aefaff4b28c12084a0c268573e96cf9ca}
+
+\begin{DoxyCompactList}\small\item\em Return reference to the element at the r row and c column. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classanpi_1_1Matrix_aedfd2cc5d14302bac723cafc08cc026a}{get} (const size\+\_\+t row, const size\+\_\+t col) const \hypertarget{classanpi_1_1Matrix_aedfd2cc5d14302bac723cafc08cc026a}{}\label{classanpi_1_1Matrix_aedfd2cc5d14302bac723cafc08cc026a}
+
+\begin{DoxyCompactList}\small\item\em Return const reference to the element at the r row and c column. \end{DoxyCompactList}\item 
+void \hyperlink{classanpi_1_1Matrix_a3cfc6c7134e51144233c27277577dbd1}{insert} (const size\+\_\+t row, const size\+\_\+t col, T \hyperlink{classanpi_1_1Matrix_ad620d822fefc019cef07f4c1fb1c7052}{data}) const 
+\begin{DoxyCompactList}\small\item\em insert the data into the row and col space \end{DoxyCompactList}\item 
+void \hyperlink{classanpi_1_1Matrix_ac3ac962e6058ef48b58e654e4ea7ed65}{allocate} (const size\+\_\+t row, const size\+\_\+t col)\hypertarget{classanpi_1_1Matrix_ac3ac962e6058ef48b58e654e4ea7ed65}{}\label{classanpi_1_1Matrix_ac3ac962e6058ef48b58e654e4ea7ed65}
+
+\begin{DoxyCompactList}\small\item\em Allocate memory for the given number of rows and cols. \end{DoxyCompactList}\item 
+void \hyperlink{classanpi_1_1Matrix_ad7b7f6f61d23ae8ccd7e3a19e82a8c63}{fill} (const T val)\hypertarget{classanpi_1_1Matrix_ad7b7f6f61d23ae8ccd7e3a19e82a8c63}{}\label{classanpi_1_1Matrix_ad7b7f6f61d23ae8ccd7e3a19e82a8c63}
+
+\begin{DoxyCompactList}\small\item\em Fill all elements of the matrix with the given value. \end{DoxyCompactList}\item 
+void \hyperlink{classanpi_1_1Matrix_a2df6d413691d4aa8d0e958eb74ee394b}{fill} (const T $\ast$mem)
+\begin{DoxyCompactList}\small\item\em Fill all elements of the matrix with the given memory block. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classanpi_1_1Matrix_a4b786272497d9f67f120a226c1bfcff4}{rows} () const \hypertarget{classanpi_1_1Matrix_a4b786272497d9f67f120a226c1bfcff4}{}\label{classanpi_1_1Matrix_a4b786272497d9f67f120a226c1bfcff4}
+
+\begin{DoxyCompactList}\small\item\em Number of rows. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classanpi_1_1Matrix_a5bd9f2fe255fe0390bfe880877222b2a}{cols} () const \hypertarget{classanpi_1_1Matrix_a5bd9f2fe255fe0390bfe880877222b2a}{}\label{classanpi_1_1Matrix_a5bd9f2fe255fe0390bfe880877222b2a}
+
+\begin{DoxyCompactList}\small\item\em Number of columns. \end{DoxyCompactList}\item 
+T $\ast$ \hyperlink{classanpi_1_1Matrix_ad620d822fefc019cef07f4c1fb1c7052}{data} ()\hypertarget{classanpi_1_1Matrix_ad620d822fefc019cef07f4c1fb1c7052}{}\label{classanpi_1_1Matrix_ad620d822fefc019cef07f4c1fb1c7052}
+
+\begin{DoxyCompactList}\small\item\em Pointer to data block. \end{DoxyCompactList}\item 
+const T $\ast$ \hyperlink{classanpi_1_1Matrix_a1f1196beed4607edc1509ede6ef26217}{data} () const \hypertarget{classanpi_1_1Matrix_a1f1196beed4607edc1509ede6ef26217}{}\label{classanpi_1_1Matrix_a1f1196beed4607edc1509ede6ef26217}
+
+\begin{DoxyCompactList}\small\item\em Pointer to data block. \end{DoxyCompactList}\item 
+const T \hyperlink{classanpi_1_1Matrix_a404201aad5948d0ccae15b65a4e2d5ad}{norm} ()\hypertarget{classanpi_1_1Matrix_a404201aad5948d0ccae15b65a4e2d5ad}{}\label{classanpi_1_1Matrix_a404201aad5948d0ccae15b65a4e2d5ad}
+
+\begin{DoxyCompactList}\small\item\em Return the norm of the matrix. \end{DoxyCompactList}\item 
+const T {\bfseries determ} ()\hypertarget{classanpi_1_1Matrix_afaf714fe0f8a2330ce080dff8a0819af}{}\label{classanpi_1_1Matrix_afaf714fe0f8a2330ce080dff8a0819af}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+\subsubsection*{template$<$typename T$>$\\*
+class anpi\+::\+Matrix$<$ T $>$}
+
+Row-\/major simple matrix class. 
+
+\subsection{Documentación de las funciones miembro}
+\index{anpi\+::\+Matrix@{anpi\+::\+Matrix}!fill@{fill}}
+\index{fill@{fill}!anpi\+::\+Matrix@{anpi\+::\+Matrix}}
+\subsubsection[{\texorpdfstring{fill(const T $\ast$mem)}{fill(const T *mem)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf anpi\+::\+Matrix}$<$ T $>$\+::fill (
+\begin{DoxyParamCaption}
+\item[{const T $\ast$}]{mem}
+\end{DoxyParamCaption}
+)}\hypertarget{classanpi_1_1Matrix_a2df6d413691d4aa8d0e958eb74ee394b}{}\label{classanpi_1_1Matrix_a2df6d413691d4aa8d0e958eb74ee394b}
+
+
+Fill all elements of the matrix with the given memory block. 
+
+The user must ensure that the given memory block has enough elements \index{anpi\+::\+Matrix@{anpi\+::\+Matrix}!insert@{insert}}
+\index{insert@{insert}!anpi\+::\+Matrix@{anpi\+::\+Matrix}}
+\subsubsection[{\texorpdfstring{insert(const size\+\_\+t row, const size\+\_\+t col, T data) const }{insert(const size_t row, const size_t col, T data) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf anpi\+::\+Matrix}$<$ T $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{const size\+\_\+t}]{row, }
+\item[{const size\+\_\+t}]{col, }
+\item[{T}]{data}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classanpi_1_1Matrix_a3cfc6c7134e51144233c27277577dbd1}{}\label{classanpi_1_1Matrix_a3cfc6c7134e51144233c27277577dbd1}
+
+
+insert the data into the row and col space 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em row} & \\
+\hline
+{\em col} & \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+matrix.\+h\end{DoxyCompactItemize}
