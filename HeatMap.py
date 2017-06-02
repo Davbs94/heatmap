@@ -34,13 +34,22 @@ def y_index(n):
 
 
 
-def fix_x(n,m):
+def fix_x(n):
     """Arregla es descuadro de los valores x
     """
     r = []
     for i in range (0,n):
         for j in range (0,n):
-            r.append(m[(n)*(n-1-j)+(i)])
+            r.append(j+0.5)
+    return r
+
+def fix_y(n):
+    """Arregla es descuadro de los valores y
+    """
+    r = []
+    for i in range (0,n):
+        for j in range (0,n):
+            r.append(i+0.5)
     return r
 
 
@@ -59,7 +68,8 @@ def hm(z,e,u,v,r):
     x = x_index(int(n))
     y = y_index(int(n))
 
-    x_f = fix_x(int(n),u)
+    x_f = fix_x(int(n))
+    y_f = fix_y(int(n))
 
 
 
@@ -67,7 +77,7 @@ def hm(z,e,u,v,r):
 
 
     if (r):
-	plt.quiver(x,y,u,v,scale=500, scale_units='inches')
+	plt.quiver(x_f,y_f,u,v, scale_units='xy')
 
 
     heatmap, xedges, yedges = np.histogram2d(y, x, bins = (n), weights=z)

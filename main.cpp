@@ -14,44 +14,40 @@ int main(int argc, char* argv[])
     methods::Liebmann<double> L;
 
 
-    /**double st=omp_get_wtime();
-    for (int i = 0; i < 100; i++) L.liebmann(atoi(argv[1])+1,atoi(argv[1])+1,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
-	double en=omp_get_wtime();
-    std::cout << "Serie  " << (en - st)/100 << std::endl;
-	
+    if (atoi(argv[9])||(atoi(argv[9])==2)){
+    	double st=omp_get_wtime();
+    	for (int i = 0; i < 50; i++) L.liebmann(atoi(argv[1])+1,atoi(argv[1])+1,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+		double en=omp_get_wtime();
+    	std::cout << "Serie  " << (en - st)/50 << std::endl;
 	st=omp_get_wtime();
-    for (int i = 0; i < 100; i++) L.pliebmann(n,m,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
-	en=omp_get_wtime();
-    std::cout << "Paralelo  " << (en - st)/100 << std::endl;
-    */
-
-    L.liebmann(n,m,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
-    std::cout << L.convertToString(V) << std::endl;
-
-    if (atoi(argv[8])){
-
-
+   	for (int i = 0; i < 50; i++) L.pliebmann(n,m,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+		en=omp_get_wtime();
+    	std::cout << "Paralelo  " << (en - st)/50 << std::endl;
+    }
+   
+    
+    if (atoi(argv[9])==0||(atoi(argv[9])==2)){
+    	if (atoi(argv[8])){
+        	L.liebmann(n,m,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+        	L.heatX(n,m,qx,V);
+       		L.heatY(n,m,qy,V);
         
-        L.heatX(n,m,qx,V);
-        L.heatY(n,m,qy,V);
-        
-    	std::string tmp1 = "z = [";
-    	std::string tmp2 = "e = ";
-    	std::string tmp3 = "u = [";
-    	std::string tmp4 = "v = [";
-    	std::string tmp5 = "r = ";
-        for(unsigned int i = 0; i < V.size(); i++){
-            if(i == V.size() - 1){
-                tmp1.append(std::to_string(V[i]) + "]");
-         	tmp3.append(std::to_string(qx[i]) + "]");
-		tmp4.append(std::to_string(qy[i]) + "]");
-				
-	    }
-            else{
-                tmp1.append(std::to_string(V[i]) + ", ");
-                tmp3.append(std::to_string(qx[i]) + ",");
-		tmp4.append(std::to_string(qy[i]) + ",");
-	   }
+    		std::string tmp1 = "z = [";
+    		std::string tmp2 = "e = ";
+    		std::string tmp3 = "u = [";
+    		std::string tmp4 = "v = [";
+    		std::string tmp5 = "r = ";
+        	for(unsigned int i = 0; i < V.size(); i++){
+            	if(i == V.size() - 1){
+                	tmp1.append(std::to_string(V[i]) + "]");
+         		tmp3.append(std::to_string(qx[i]) + "]");
+			tmp4.append(std::to_string(qy[i]) + "]");		
+	    	}
+            	else{
+               		tmp1.append(std::to_string(V[i]) + ", ");
+                	tmp3.append(std::to_string(qx[i]) + ",");
+			tmp4.append(std::to_string(qy[i]) + ",");
+	   	}
         }
 
    
@@ -83,6 +79,6 @@ int main(int argc, char* argv[])
         Py_Exit(0);
         Py_Finalize();
         }
-
+     }
     return 0;
 }
