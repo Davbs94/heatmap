@@ -6,7 +6,7 @@ Antes de ejecutar el programa se debe tener lo siguiente instalado:
 -matplotlib (si no lo tiene: sudo apt-get intall python-matplotlib)
 
 Para compilar el archivo main.cpp:
--g++ -std=c++11 -fmopen main.cpp -lpython2.7
+-g++ -std=c++11 main.cpp -fopenmp -lpython2.7
 
 Para ejecutar el programa con parametros:
 -./a.out (dimension de la matriz cuadrada) (Pared abajo) (Pared Arriba) (Pared Derecha) (Pared Izquierda)
