@@ -108,9 +108,12 @@ Métodos públicos</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmethods_1_1Liebmann.html#a2f2d48f06aeb92dcbcb0e73774ffb200">~Liebmann</a> ()</td></tr>
 <tr class="memdesc:a2f2d48f06aeb92dcbcb0e73774ffb200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
 <tr class="separator:a2f2d48f06aeb92dcbcb0e73774ffb200"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a422c224247ccf4cb7e997553436aa59e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmethods_1_1Liebmann.html#a422c224247ccf4cb7e997553436aa59e">liebmann</a> (short int n, short int m, T bottom, T top, T left, T right, std::vector&lt; T &gt; &amp;solution)</td></tr>
-<tr class="memdesc:a422c224247ccf4cb7e997553436aa59e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Este es el metodo utilizado para generar la matriz de solucion del metodo de liebman paralelizado.  <a href="#a422c224247ccf4cb7e997553436aa59e">Más...</a><br /></td></tr>
-<tr class="separator:a422c224247ccf4cb7e997553436aa59e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa08c0ff64a59ca72fbb3d1d4d0e690bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa08c0ff64a59ca72fbb3d1d4d0e690bc"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>convertToString</b> (std::vector&lt; T &gt; V)</td></tr>
+<tr class="separator:aa08c0ff64a59ca72fbb3d1d4d0e690bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a883dbcefab3121f882abefd7740fe057"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmethods_1_1Liebmann.html#a883dbcefab3121f882abefd7740fe057">liebmann</a> (short int n, short int m, T bottom, T top, T left, T right, std::vector&lt; T &gt; &amp;solution, T umbral)</td></tr>
+<tr class="memdesc:a883dbcefab3121f882abefd7740fe057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Este es el metodo utilizado para generar la matriz de solucion del metodo de liebman paralelizado.  <a href="#a883dbcefab3121f882abefd7740fe057">Más...</a><br /></td></tr>
+<tr class="separator:a883dbcefab3121f882abefd7740fe057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa89b8c2b82ca711b58fa318b1279ace0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmethods_1_1Liebmann.html#aa89b8c2b82ca711b58fa318b1279ace0">pliebmann</a> (short int n, short int m, T bottom, T top, T left, T right, std::vector&lt; T &gt; &amp;solution)</td></tr>
 <tr class="memdesc:aa89b8c2b82ca711b58fa318b1279ace0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Este es el metodo utilizado para generar la matriz de solucion del metodo de liebmann paralelizado.  <a href="#aa89b8c2b82ca711b58fa318b1279ace0">Más...</a><br /></td></tr>
 <tr class="separator:aa89b8c2b82ca711b58fa318b1279ace0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -226,7 +229,7 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a422c224247ccf4cb7e997553436aa59e"></a>
+<a class="anchor" id="a883dbcefab3121f882abefd7740fe057"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -272,7 +275,13 @@ template&lt;typename T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>solution</em>&#160;</td>
+          <td class="paramname"><em>solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>umbral</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -302,6 +311,12 @@ template&lt;typename T &gt; </div>
 <p>se llena con cero la matriz</p>
 <p>se analizan los casos de los limites Para el caso de la placa es sencillo dado el hecho de que solo se analizan los bordes</p>
 <p>Se aplica el metodo de liebmann T[i][j] = (1/4)( T[i+1][j] + T[i-1][j] + T[i][j+1] + T[i][j-1]) el metodo se iterera n veces</p>
+<p>tmp:almacena el valor de la formula</p>
+<p>tmp:almacena el valor de la formula</p>
+<p>tmp:almacena el valor de la formula</p>
+<p>tmp:almacena el valor de la formula</p>
+<p>tmp:almacena el valor de la formula</p>
+<p>tmp:almacena el valor de la formula</p>
 <p>tmp:almacena el valor de la formula</p>
 <p>Se guarda el resultado de la matriz en el vector solution</p>
 
