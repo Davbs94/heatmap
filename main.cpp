@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
     }
    
     
-    if (atoi(argv[9])==0||(atoi(argv[9])==2)){
+    if (atoi(argv[8])){
     	if (atoi(argv[8])){
         	L.liebmann(n,m,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
         	L.heatX(n,m,qx,V);
@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
                		tmp1.append(std::to_string(V[i]) + ", ");
                 	tmp3.append(std::to_string(qx[i]) + ",");
 			tmp4.append(std::to_string(qy[i]) + ",");
-	   	}
+	   }
         }
 
    
