@@ -8,15 +8,15 @@
 
 int main(int argc, char* argv[])
 {
-    int n = atoi(argv[1])+1;
-    int m = atoi(argv[1])+1;
+    int n = atoi(argv[1])+2;
+    int m = atoi(argv[1])+2;
     std::vector<double> V(n*m,0),qx,qy;
     methods::Liebmann<double> L;
 
 
     if (atoi(argv[9])||(atoi(argv[9])==2)){
     	double st=omp_get_wtime();
-    	for (int i = 0; i < 50; i++) L.liebmann(atoi(argv[1])+1,atoi(argv[1])+1,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V, atof(argv[10]));
+    	for (int i = 0; i < 50; i++) L.liebmann(n,m,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V, atof(argv[10]));
 		double en=omp_get_wtime();
     	std::cout << "Serie  " << (en - st)/50 << std::endl;
 	st=omp_get_wtime();
