@@ -8,27 +8,32 @@
 
 int main(int argc, char* argv[])
 {
-     std::vector<float> V(atoi(argv[1])*atoi(argv[1]),0),qx,qy;
-    methods::Liebmann<float> L;
+    int n = atoi(argv[1])+1;
+    int m = atoi(argv[1])+1;
+    std::vector<double> V(n*m,0),qx,qy;
+    methods::Liebmann<double> L;
 
-	double st=omp_get_wtime();
-    for (int i = 0; i < 100; i++) L.liebmann(atoi(argv[1]),atoi(argv[1]),atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+
+    /**double st=omp_get_wtime();
+    for (int i = 0; i < 100; i++) L.liebmann(atoi(argv[1])+1,atoi(argv[1])+1,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
 	double en=omp_get_wtime();
     std::cout << "Serie  " << (en - st)/100 << std::endl;
 	
 	st=omp_get_wtime();
-    for (int i = 0; i < 100; i++) L.pliebmann(atoi(argv[1]),atoi(argv[1]),atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+    for (int i = 0; i < 100; i++) L.pliebmann(n,m,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
 	en=omp_get_wtime();
     std::cout << "Paralelo  " << (en - st)/100 << std::endl;
-    
+    */
 
+    L.liebmann(n,m,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+    std::cout << L.convertToString(V) << std::endl;
 
     if (atoi(argv[8])){
 
 
         
-        L.heatX(atoi(argv[1]),atoi(argv[1]),qx,V);
-        L.heatY(atoi(argv[1]),atoi(argv[1]),qy,V);
+        L.heatX(n,m,qx,V);
+        L.heatY(n,m,qy,V);
         
     	std::string tmp1 = "z = [";
     	std::string tmp2 = "e = ";
@@ -51,7 +56,7 @@ int main(int argc, char* argv[])
 
    
     
-   	tmp2.append(std::to_string(atoi(argv[6])));
+        tmp2.append(std::to_string(atoi(argv[6])));
         tmp5.append(std::to_string(atoi(argv[7])));
         /*
          *Codigo de Python embebido para graficar usando MatplotLib
