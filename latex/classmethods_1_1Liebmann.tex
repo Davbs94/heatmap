@@ -9,7 +9,10 @@
 \hyperlink{classmethods_1_1Liebmann_a2f2d48f06aeb92dcbcb0e73774ffb200}{$\sim$\+Liebmann} ()\hypertarget{classmethods_1_1Liebmann_a2f2d48f06aeb92dcbcb0e73774ffb200}{}\label{classmethods_1_1Liebmann_a2f2d48f06aeb92dcbcb0e73774ffb200}
 
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
-void \hyperlink{classmethods_1_1Liebmann_a422c224247ccf4cb7e997553436aa59e}{liebmann} (short int n, short int m, T bottom, T top, T left, T right, std\+::vector$<$ T $>$ \&solution)
+const char $\ast$ {\bfseries convert\+To\+String} (std\+::vector$<$ T $>$ V)\hypertarget{classmethods_1_1Liebmann_aa08c0ff64a59ca72fbb3d1d4d0e690bc}{}\label{classmethods_1_1Liebmann_aa08c0ff64a59ca72fbb3d1d4d0e690bc}
+
+\item 
+void \hyperlink{classmethods_1_1Liebmann_a883dbcefab3121f882abefd7740fe057}{liebmann} (short int n, short int m, T bottom, T top, T left, T right, std\+::vector$<$ T $>$ \&solution, T umbral)
 \begin{DoxyCompactList}\small\item\em Este es el metodo utilizado para generar la matriz de solucion del metodo de liebman paralelizado. \end{DoxyCompactList}\item 
 void \hyperlink{classmethods_1_1Liebmann_aa89b8c2b82ca711b58fa318b1279ace0}{pliebmann} (short int n, short int m, T bottom, T top, T left, T right, std\+::vector$<$ T $>$ \&solution)
 \begin{DoxyCompactList}\small\item\em Este es el metodo utilizado para generar la matriz de solucion del metodo de liebmann paralelizado. \end{DoxyCompactList}\item 
@@ -76,7 +79,7 @@ Este es el metodo utilizado para generar el vector qy, que representa la compone
 \end{DoxyParams}
 \index{methods\+::\+Liebmann@{methods\+::\+Liebmann}!liebmann@{liebmann}}
 \index{liebmann@{liebmann}!methods\+::\+Liebmann@{methods\+::\+Liebmann}}
-\subsubsection[{\texorpdfstring{liebmann(short int n, short int m, T bottom, T top, T left, T right, std\+::vector$<$ T $>$ \&solution)}{liebmann(short int n, short int m, T bottom, T top, T left, T right, std::vector< T > &solution)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf methods\+::\+Liebmann}$<$ T $>$\+::liebmann (
+\subsubsection[{\texorpdfstring{liebmann(short int n, short int m, T bottom, T top, T left, T right, std\+::vector$<$ T $>$ \&solution, T umbral)}{liebmann(short int n, short int m, T bottom, T top, T left, T right, std::vector< T > &solution, T umbral)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf methods\+::\+Liebmann}$<$ T $>$\+::liebmann (
 \begin{DoxyParamCaption}
 \item[{short int}]{n, }
 \item[{short int}]{m, }
@@ -84,9 +87,10 @@ Este es el metodo utilizado para generar el vector qy, que representa la compone
 \item[{T}]{top, }
 \item[{T}]{left, }
 \item[{T}]{right, }
-\item[{std\+::vector$<$ T $>$ \&}]{solution}
+\item[{std\+::vector$<$ T $>$ \&}]{solution, }
+\item[{T}]{umbral}
 \end{DoxyParamCaption}
-)}\hypertarget{classmethods_1_1Liebmann_a422c224247ccf4cb7e997553436aa59e}{}\label{classmethods_1_1Liebmann_a422c224247ccf4cb7e997553436aa59e}
+)}\hypertarget{classmethods_1_1Liebmann_a883dbcefab3121f882abefd7740fe057}{}\label{classmethods_1_1Liebmann_a883dbcefab3121f882abefd7740fe057}
 
 
 Este es el metodo utilizado para generar la matriz de solucion del metodo de liebman paralelizado. 
@@ -121,6 +125,18 @@ se llena con cero la matriz
 se analizan los casos de los limites Para el caso de la placa es sencillo dado el hecho de que solo se analizan los bordes
 
 Se aplica el metodo de liebmann T\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} = (1/4)( T\mbox{[}i+1\mbox{]}\mbox{[}j\mbox{]} + T\mbox{[}i-\/1\mbox{]}\mbox{[}j\mbox{]} + T\mbox{[}i\mbox{]}\mbox{[}j+1\mbox{]} + T\mbox{[}i\mbox{]}\mbox{[}j-\/1\mbox{]}) el metodo se iterera n veces
+
+tmp\+:almacena el valor de la formula
+
+tmp\+:almacena el valor de la formula
+
+tmp\+:almacena el valor de la formula
+
+tmp\+:almacena el valor de la formula
+
+tmp\+:almacena el valor de la formula
+
+tmp\+:almacena el valor de la formula
 
 tmp\+:almacena el valor de la formula
 

@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 
     if (atoi(argv[9])||(atoi(argv[9])==2)){
     	double st=omp_get_wtime();
-    	for (int i = 0; i < 50; i++) L.liebmann(atoi(argv[1])+1,atoi(argv[1])+1,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+    	for (int i = 0; i < 50; i++) L.liebmann(atoi(argv[1])+1,atoi(argv[1])+1,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V, atof(argv[10]));
 		double en=omp_get_wtime();
     	std::cout << "Serie  " << (en - st)/50 << std::endl;
 	st=omp_get_wtime();
@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
     
     if (atoi(argv[8])){
     	if (atoi(argv[8])){
-        	L.liebmann(n,m,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V);
+        	L.liebmann(n,m,atof(argv[2]),atof(argv[3]),atof(argv[4]),atof(argv[5]), V, atof(argv[10]));
         	L.heatX(n,m,qx,V);
        		L.heatY(n,m,qy,V);
         

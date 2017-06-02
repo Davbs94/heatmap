@@ -77,7 +77,7 @@ def hm(z,e,u,v,r):
 
 
     if (r):
-	plt.quiver(x_f,y_f,u,v, scale_units='xy')
+	plt.quiver(x_f,y_f,u,v,scale = 600/n, scale_units='xy')
 
 
     heatmap, xedges, yedges = np.histogram2d(y, x, bins = (n), weights=z)

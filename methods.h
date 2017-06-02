@@ -64,7 +64,7 @@ namespace methods {
 			 *                si el valor que se indica es 0, se asume que ese borde esta aislado
 			 * @param solution En este parametro se almacenara la solucion del metodo
 			 */
-			void liebmann(short int n, short int m, T bottom, T top, T left, T right, std::vector<T>& solution);
+			void liebmann(short int n, short int m, T bottom, T top, T left, T right, std::vector<T>& solution, T umbral);
 		
 			/**
 			 * @brief Este es el metodo utilizado para generar la matriz de solucion del metodo de liebmann paralelizado
@@ -142,40 +142,50 @@ namespace methods {
 	 */
 	template<typename T>
 	void Liebmann<T>::insertBounderyValues(short int n, short int m, T bottom, T top, T left, T right, anpi::Matrix<T>& M){
-		/**
-		 * se analizan los casos de los limites
-		 * Para el caso de la placa es sencillo dado el hecho de que solo se analizan los bordes
-		*/
-		//en la parte baja de la placa
-        if(bottom != T(-1)){
-            for(int i = 0; i < m; i++) M.insert(m-1,i, bottom);
-        }else{
-            for(int i = 0; i < m; i++){
-                M.insert(m-1,i, 0);
-            }
-        }
+			/**
+			 * se analizan los casos de los limites
+			 * Para el caso de la placa es sencillo dado el hecho de que solo se analizan los bordes
+			*/
+			//en la parte baja de la placa
+			for(int i = 0; i < m; i++){
+				if(bottom != T(-1)) M.insert(m-1,i, bottom);
+				else  M.insert(m-1,i, 0);
+			}
 
-		//en la parte alta de la placa
-        if(top != T(-1)){
-            for(int i = 0; i < m; i++){
-                M.insert(0,i, top);
-            }
-        }
+			//en la parte alta de la placa
+			for(int i = 0; i < m; i++){
+				if(top != T(-1)) M.insert(0,i, top);
+				else M.insert(0,i, 0);
+			}
 
-		//en la parte izquierda de la placa
-		for(int i = 0; i < n; i++){
-				M.insert(i,0, left);
-		}
+			//en la parte izquierda de la placa
+			for(int i = 0; i < n; i++){
+				if (left != -1) M.insert(i,0, left);
+				else M.insert(i,0, 0);
+			}
 
-		//en la parte derecha de la placa
-		for(int i = 0; i < n; i++){
-			   M.insert(i,n-1, right);
-		}
+			//en la parte derecha de la placa
+			for(int i = 0; i < n; i++){
+				if (right != -1) M.insert(i,n-1, right);
+				else M.insert(i,n-1, 0);
+			}
 
-        if(bottom == -1){
-            M.insert(n-1,0,left);
-            M.insert(n-1,m-1,right);
-        }
+			if(bottom == -1){
+				M.insert(n-1,0,left);
+				M.insert(n-1,m-1,right);
+			}
+			if(top == -1){
+				M.insert(0,0, left);
+				M.insert(0,m-1, right);
+			}
+			if(left == -1){
+				M.insert(0,0, top);
+				M.insert(n-1,0, bottom);
+			}
+			if(right == -1){
+				M.insert(0,n-1, top);
+				M.insert(m-1,n-1, bottom);
+			}
         }
 
         template<typename T>
@@ -205,85 +215,137 @@ namespace methods {
          * @param solution En este parametro se almacenara la solucion del metodo
          */
         template<typename T>
-        void Liebmann<T>::liebmann(short int n, short int m, T bottom, T top, T left, T right, std::vector<T>& solution)
+        void Liebmann<T>::liebmann(short int n, short int m, T bottom, T top, T left, T right, std::vector<T>& solution, T umbral)
         {
             /** se instancia una matriz en la cual se guardara la solucion del metodo*/
             anpi::Matrix<T> M(n,m);
             /** se instancia una matriz temporal en la cual se guardara la matriz anterior del metodo, para as[i hacer las comparaciones y obtener el error*/
             anpi::Matrix<T> TMP(n,m);
 
-		/** se llena con cero la matriz*/
-		makeCero(M);
-		/** se llena con cero la matriz*/
-		makeCero(TMP);
+			/** se llena con cero la matriz*/
+			makeCero(M);
+			/** se llena con cero la matriz*/
+			makeCero(TMP);
 
-		/**
-		 * se analizan los casos de los limites
-		 * Para el caso de la placa es sencillo dado el hecho de que solo se analizan los bordes
-		*/
-		insertBounderyValues(n, m, bottom, top, left, right, M);
+			/**
+			 * se analizan los casos de los limites
+			 * Para el caso de la placa es sencillo dado el hecho de que solo se analizan los bordes
+			*/
+			insertBounderyValues(n, m, bottom, top, left, right, M);
 
 
-		/**
-		* Se aplica el metodo de liebmann
-		* T[i][j] = (1/4)( T[i+1][j] + T[i-1][j] + T[i][j+1] + T[i][j-1])
-		* el metodo se iterera n veces
-		*/
-        int k = 0;
-        while(true){
-			for(int i = 1; i < n; i++){
-				for(int j = 1; j < m; j++){
-                    if(bottom !=-1){
-                        if(i+1 != n && j+1 != m){
-                            /**
-                             * @brief tmp:almacena el valor de la formula
-                             */
-                            T tmp = 0.25 * ( M.get(i+1,j) + M.get(i-1,j) + M.get(i,j+1) + M.get(i,j-1));
-                            M.insert(i,j,tmp);
-                        }
-                    }else{
+			/**
+			* Se aplica el metodo de liebmann
+			* T[i][j] = (1/4)( T[i+1][j] + T[i-1][j] + T[i][j+1] + T[i][j-1])
+			* el metodo se iterera n veces
+			*/
+			int k = 0;
+			while(true){
+				for(int i = 0; i < n; i++){
+					for(int j = 0; j < m; j++){
+						if(bottom !=-1 && top !=-1 && left !=-1 && right !=-1){
+							if(i+1 != n && j+1 != m && i != 0 && j != 0){
+								/**
+								 * @brief tmp:almacena el valor de la formula
+								 */
+								T tmp = 0.25 * ( M.get(i+1,j) + M.get(i-1,j) + M.get(i,j+1) + M.get(i,j-1));
+								M.insert(i,j,tmp);
+							}
+						}else{
+							if(top ==-1){
+								if(i+1 != n && j+1 != m && i != 0 && j != 0){
+									/**
+									 * @brief tmp:almacena el valor de la formula
+									 */
+									T tmp = 0.25 * ( M.get(i+1,j) + M.get(i-1,j) + M.get(i,j+1) + M.get(i,j-1));
 
-                        if(i+1 != n && j+1 != m){
-                            /**
-                             * @brief tmp:almacena el valor de la formula
-                             */
-                            T tmp = 0.25 * ( M.get(i+1,j) + M.get(i-1,j) + M.get(i,j+1) + M.get(i,j-1));
+									M.insert(i,j,tmp);
+								}
+								else{
+									if(j+1!=n && j != 0 && i ==0){
+										/**
+										* @brief tmp:almacena el valor de la formula
+										*/
+										T tmp = 0.25 * (M.get(0, j+1) + M.get(0,j-1) +2*M.get(1,j));
+										M.insert(i,j,tmp);
+									}
+								}
+							}
+							if(bottom == -1){
+								if(i+1 != n && j+1 != m && i != 0 && j != 0){
+									/**
+									 * @brief tmp:almacena el valor de la formula
+									 */
+									T tmp = 0.25 * ( M.get(i+1,j) + M.get(i-1,j) + M.get(i,j+1) + M.get(i,j-1));
 
-                            M.insert(i,j,tmp);
-                        }else{
-                            if(j+1!=n){
-                                /**
-                                * @brief tmp:almacena el valor de la formula
-                                */
-                                T tmp = 0.25 * (M.get(n-1, j+1) + M.get(n-1,j-1) +2*M.get(n-2,1));
-                                M.insert(i,j,tmp);
-                            }
-                        }
-                    }
+									M.insert(i,j,tmp);
+								}
+								else{
+									if(j+1!=n && j!= 0 && i == n-1){
+										/**
+										* @brief tmp:almacena el valor de la formula
+										*/
+										T tmp = 0.25 * (M.get(n-1, j+1) + M.get(n-1,j-1) +2*M.get(n-2,j));
+										M.insert(i,j,tmp);
+									}
+								}
+							}
+							if(left == -1){
+								if(i+1 != n && j+1 != m && i != 0 && j != 0){
+									/**
+									 * @brief tmp:almacena el valor de la formula
+									 */
+									T tmp = 0.25 * ( M.get(i+1,j) + M.get(i-1,j) + M.get(i,j+1) + M.get(i,j-1));
+
+									M.insert(i,j,tmp);
+								}
+								else{
+									if(i != 0 && i+1 != n && j == 0){
+										T tmp = 0.25 * ( M.get(i+1,j) + M.get(i-1,j) + 2*M.get(i,1));
+										M.insert(i,j,tmp);
+									}
+								}
+							}
+							if(right == -1){
+								if(i+1 != n && j+1 != m && i != 0 && j != 0){
+									/**
+									 * @brief tmp:almacena el valor de la formula
+									 */
+									T tmp = 0.25 * ( M.get(i+1,j) + M.get(i-1,j) + M.get(i,j+1) + M.get(i,j-1));
+
+									M.insert(i,j,tmp);
+								}
+								else{
+									if(i != 0 && i+1 != n && j == n-1){
+										T tmp = 0.25 * ( M.get(i+1,j) + M.get(i-1,j) + 2*M.get(i,n-2));
+										M.insert(i,j,tmp);
+									}
+								}
+							}
+						}
+					}
+				}
+				if(k == 1) TMP.fill(M.data());
+				else if(k > 2){
+					if (std::abs(TMP.norm() - M.norm()) < umbral){ //verificacion del error con la norma
+						break;
+					}
+					else{
+						TMP.fill(M.data());
+					}
+				}
+				k++;
+			}
+
+
+			/**
+			* Se guarda el resultado de la matriz en el vector solution
+			*/
+			for(int i = 0; i < n; i++){
+				for(int j = 0; j < m; j++){
+					solution[i*m+j] = (M.get(i,j));
 				}
 			}
-			if(k == 1) TMP.fill(M.data());
-			else if(k > 2){
-                if (std::abs(TMP.norm() - M.norm()) < 0.000000001){ //verificacion del error con la norma
-					break;
-				}
-				else{
-					TMP.fill(M.data());
-				}
-			}
-            k++;
-		}
-
-
-		/**
-		* Se guarda el resultado de la matriz en el vector solution
-		*/
-		for(int i = 0; i < n; i++){
-			for(int j = 0; j < m; j++){
-				solution[i*m+j] = (M.get(i,j));
-			}
-		}
-
 	}
 
 	/**
